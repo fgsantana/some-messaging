@@ -1,0 +1,12 @@
+spring.kafka:
+  producer:
+    retries: 10
+    bootstrap-servers: 0.0.0.0:9092
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          auto-create-topics: true
