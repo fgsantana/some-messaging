@@ -9,13 +9,11 @@ import java.util.List;
 
 @Service
 public class ConsumerService {
-    List<String> list = new ArrayList<String>();
+    List<String> list = new ArrayList<>();
 
-    @KafkaListener(topics = "topico1")
-    public void consume(@Payload String message) {
-        list.add(message);
-        System.out.println(message);
-
+    @KafkaListener(topics = "test-topic", groupId = "groupId")
+    public void consume(@Payload String data) {
+        list.add(data);
     }
 
     public List<String> getAllMessages() {
