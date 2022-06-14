@@ -16,9 +16,9 @@ public class ProducerService {
         this.connectionFactory = connectionFactory;
     }
 
-    public void sendMessage(String message, String exchange) throws Exception {
+    public void sendMessage(final String message, final String exchange) throws Exception {
         try (Connection connection = connectionFactory.newConnection();
-             Channel channel = connection.createChannel()){
+             final Channel channel = connection.createChannel()){
             channel.basicPublish(exchange,"",null,message.getBytes());
         }
 
